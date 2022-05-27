@@ -6,9 +6,10 @@
     "main": "index.js",
     "scripts": {
         "sass": "sass src/scss:dist/css -w --no-source-map",
-        "start": "tsc --watch",
+        "start ts": "tsc --watch",
         "start:build": "node ./dist/index.js",
-        "test": "jest --watchAll --coverage"
+        "test": "jest --watchAll --coverage",
+        "start": "node index"
     },
     "keywords": [],
     "author": "Marina Navarrete",
@@ -18,7 +19,9 @@
     },
     "dependencies": {
         "@types/uuid": "^8.3.4",
-        "uuid": "^8.3.2"
+        "uuid": "^8.3.2",
+        "cors": "^2.8.5",
+        "json-server": "^0.16.3"
     },
     "devDependencies": {
         "@babel/plugin-transform-modules-commonjs": "^7.17.12",

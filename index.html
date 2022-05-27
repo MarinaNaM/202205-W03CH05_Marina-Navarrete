@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pokemon</title>
+        <script src="./dist/scripts/app.js" type="module"></script>
+        <link
+            rel="shortcut icon"
+            href="./dist/pokemon-logo.svg"
+            type="image/x-icon"
+        />
+    </head>
+    <body>
+        <header>
+            <h1>Lista de pokemon</h1>
+        </header>
+        <main>
+            <slot class="pokemon"></slot>
+        </main>
+        <footer>
+            <address>ISDI Coders - pokeApi- Marina</address>
+        </footer>
+    </body>
+</html>
