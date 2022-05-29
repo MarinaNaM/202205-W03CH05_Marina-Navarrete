@@ -6,3 +6,8 @@ export interface iPokemon {
         other: { dream_world: { front_default: string } };
     };
 }
+
+export interface iNavbar {
+    path: string;
+    label: string;
+}

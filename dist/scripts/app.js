@@ -1,8 +1,5 @@
 import { Controller } from '../components/Controller.js';
 (() => {
-    document.addEventListener('DOMContentLoaded', () => {
-        new Controller();
-    });
     // const path = location.pathname.split('/');
     // if (
     //     path[path.length - 1] === '' ||
@@ -14,4 +11,7 @@ import { Controller } from '../components/Controller.js';
     // } else {
     //     document.addEventListener('DOMContentLoaded', about);
     // }
+    document.addEventListener('DOMContentLoaded', () => {
+        new Controller();
+    });
 })();

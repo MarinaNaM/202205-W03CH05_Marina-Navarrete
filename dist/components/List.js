@@ -2,21 +2,28 @@ import { Component } from './Component.js';
 import { PokemonCromo } from './PokeCromo.js';
 export class List extends Component {
     pokemons;
+    pokeFavs;
     template;
-    constructor(pokemons, selector) {
+    constructor(pokemons, selector, pokeFavs) {
         super();
         this.pokemons = pokemons;
+        this.pokeFavs = pokeFavs;
         this.template = this.createTemplate();
-        this.outRender(selector);
+        this.render(selector);
         pokemons.forEach((pokemon) => {
-            new PokemonCromo(pokemon, 'slot.item');
+            const isFav = pokeFavs.includes(pokemon.id);
+            new PokemonCromo(pokemon, 'slot.item', isFav);
         });
     }
     createTemplate() {
         let template = `
-            <ul>
+            <ul class="list-card">
                 <slot class="item"></slot>
             </ul>
+            <div class="buttons">
+                <button class="button buttons__button-previous" id="previous">Previous</button>
+                <button class="button buttons__button-next" id="next">Next</button>
+            </div>
             `;
         return template;
     }

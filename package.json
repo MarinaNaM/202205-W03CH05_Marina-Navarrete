@@ -6,10 +6,10 @@
     "main": "index.js",
     "scripts": {
         "sass": "sass src/scss:dist/css -w --no-source-map",
-        "start ts": "tsc --watch",
+        "start": "tsc --watch",
         "start:build": "node ./dist/index.js",
         "test": "jest --watchAll --coverage",
-        "start": "node index"
+        "start-": "node index"
     },
     "keywords": [],
     "author": "Marina Navarrete",
