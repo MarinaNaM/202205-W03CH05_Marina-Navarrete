@@ -8,13 +8,15 @@ export class List extends Component {
     constructor(
         public pokemons: Array<iPokemon>,
         selector: string,
-        public pokeFavs: Array<number>
+        public pokeFavs: Array<iPokemon>
     ) {
         super();
         this.template = this.createTemplate();
         this.render(selector);
         pokemons.forEach((pokemon) => {
-            const isFav = pokeFavs.includes(pokemon.id);
+            const isFav =
+                pokeFavs.filter((pokemonFav) => pokemonFav.id === pokemon.id)
+                    .length !== 0;
 
             new PokemonCromo(pokemon, 'slot.item', isFav);
         });

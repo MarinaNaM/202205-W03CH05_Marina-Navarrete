@@ -8,21 +8,25 @@ export class Controller {
     starIndex: number;
     pokeApi: HttpStoreClass;
     pokeFavs: Array<number>;
+    localApi: HttpStoreClass;
     constructor() {
         new Header('slot.header');
-        this.pokeApi = new HttpStoreClass();
+        this.pokeApi = new HttpStoreClass('https://pokeapi.co/api/v2/pokemon/');
+        this.localApi = new HttpStoreClass('http://localhost:3000/pokemon/');
         this.starIndex = 1;
         this.pokeFavs = [];
         this.updateRender();
     }
     private updateRender() {
         const promises: Array<Promise<iPokemon>> = [];
-        for (let i = this.starIndex; i <= this.starIndex + 6; i++) {
+        for (let i = this.starIndex; i <= this.starIndex + 5; i++) {
             promises.push(this.pokeApi.getPokemon(i));
         }
         Promise.all(promises).then((values) => {
-            new List(values, 'main', this.pokeFavs);
-            this.manageComponent();
+            this.localApi.getAllPokemons().then((arrayFavPokemons) => {
+                new List(values, 'main', arrayFavPokemons);
+                this.manageComponent();
+            });
         });
     }
     private manageComponent() {
@@ -44,9 +48,13 @@ export class Controller {
             // }
             this.starIndex = this.starIndex - 6 < 1 ? 1 : this.starIndex - 6;
         } else if (target.id === 'next') {
-            this.starIndex = this.starIndex + 7;
-        } else {
-            this.pokeFavs.push(Number(target.dataset.id));
+            this.starIndex = this.starIndex + 6;
+        } else if (target.id === 'fav') {
+            this.pokeApi
+                .getPokemon(Number(target.dataset.id))
+                .then((pokemon) => {
+                    this.localApi.setPokemon(pokemon);
+                });
         }
         this.updateRender();
     }

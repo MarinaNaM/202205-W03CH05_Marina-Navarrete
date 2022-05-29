@@ -18,13 +18,69 @@ header .menu .navbar__list .links {
 header .menu .navbar__list .links:visited {
   color: unset;
 }
+header .menu .navbar__list .links:hover {
+  color: red;
+  font-size: 2.5rem;
+}
 
 main .list-card {
   list-style: none;
+  display: grid;
+  grid-template-columns: [x0] 1fr [x1] 1fr [x2] 1fr;
+  grid-template-rows: [y0] 1fr [y1] 1fr;
+}
+main .list-card .card {
+  border: solid black;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(209deg, rgba(255, 255, 255, 0.7095880589) 0%, rgba(255, 0, 0, 0.6283555659) 100%);
+  margin: 0.5rem;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .list-card .card__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .list-card .card__info-fav {
+  border: none;
+  background-color: transparent;
+  font-size: 1.7rem;
 }
 main .list-card .card__info-name {
   font-family: "Shadows Into Light", cursive;
+  font-size: 2rem;
+}
+main img {
+  width: 17rem;
+  padding: 1rem;
+}
+main .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15px;
+}
+main .buttons__button-previous {
+  font-family: "Shadows Into Light", cursive;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+}
+main .buttons__button-previous:hover {
+  color: red;
+  font-size: 2.5rem;
+}
+main .buttons__button-next {
+  font-family: "Shadows Into Light", cursive;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+}
+main .buttons__button-next:hover {
+  color: red;
+  font-size: 2.5rem;
 }

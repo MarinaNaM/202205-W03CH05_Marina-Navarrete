@@ -17,6 +17,10 @@ header {
                 &:visited {
                     color: unset;
                 }
+                &:hover {
+                    color: red;
+                    font-size: 2.5rem;
+                }
             }
         }
     }
@@ -25,11 +29,68 @@ header {
 main {
     .list-card {
         list-style: none;
+        display: grid;
+        grid-template-columns: [x0] 1fr [x1] 1fr [x2] 1fr;
+        grid-template-rows: [y0] 1fr [y1] 1fr;
+
+        .card {
+            border: solid black;
+            background: rgb(255, 255, 255);
+            background: linear-gradient(
+                209deg,
+                rgba(255, 255, 255, 0.709588058856355) 0%,
+                rgba(255, 0, 0, 0.6283555658591562) 100%
+            );
+            margin: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            &__info {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                &-fav {
+                    border: none;
+                    background-color: transparent;
+                    font-size: 1.7rem;
+                }
+                &-name {
+                    font-family: 'Shadows Into Light', cursive;
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+    img {
+        width: 17rem;
+        padding: 1rem;
+    }
+    .buttons {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        .card__info-name {
+        justify-content: center;
+        align-items: center;
+        height: 15px;
+        &__button-previous {
             font-family: 'Shadows Into Light', cursive;
+            border: none;
+            background-color: transparent;
+            font-size: 2rem;
+            &:hover {
+                color: red;
+                font-size: 2.5rem;
+            }
+        }
+        &__button-next {
+            font-family: 'Shadows Into Light', cursive;
+            border: none;
+            background-color: transparent;
+            font-size: 2rem;
+            &:hover {
+                color: red;
+                font-size: 2.5rem;
+            }
         }
     }
 }
